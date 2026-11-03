@@ -1,0 +1,30 @@
+# ========================================================
+# Security Protection for Uploads Directory
+# Disables script execution and directory browsing
+# ========================================================
+
+# Prevent directory indexing
+Options -Indexes -ExecCGI
+
+# Deny direct execution of scripts
+<FilesMatch "(?i)\.(php|php[0-9]|phtml|phar|pl|py|cgi|asp|aspx|sh|bash|exe|bat|cmd)$">
+    <IfModule mod_authz_core.c>
+        Require all denied
+    </IfModule>
+    <IfModule !mod_authz_core.c>
+        Order Deny,Allow
+        Deny from all
+    </IfModule>
+</FilesMatch>
+
+# Turn off PHP engine if mod_php is used
+<IfModule mod_php.c>
+    php_flag engine off
+</IfModule>
+<IfModule mod_php7.c>
+    php_flag engine off
+</IfModule>
+<IfModule mod_php8.c>
+    php_flag engine off
+</IfModule>
+

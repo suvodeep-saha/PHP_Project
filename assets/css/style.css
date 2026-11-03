@@ -1,0 +1,202 @@
+/**
+ * Custom Portal Stylesheet
+ * Online Assignment Submission System
+ */
+
+:root {
+    --primary-color: #2563eb;
+    --primary-hover: #1d4ed8;
+    --secondary-color: #475569;
+    --dark-bg: #0f172a;
+    --sidebar-bg: #1e293b;
+    --sidebar-active: #3b82f6;
+    --content-bg: #f8fafc;
+    --card-border: #e2e8f0;
+}
+
+body {
+    background-color: var(--content-bg);
+    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+    color: #1e293b;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Navbar */
+.navbar-brand {
+    font-weight: 700;
+    letter-spacing: -0.5px;
+}
+.portal-navbar {
+    background: #ffffff;
+    border-bottom: 1px solid var(--card-border);
+    box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+}
+
+/* Main Dashboard Wrapper */
+.dashboard-wrapper {
+    display: flex;
+    flex: 1;
+    min-height: calc(100vh - 65px);
+}
+
+/* Sidebar Styles */
+.sidebar {
+    width: 260px;
+    background-color: var(--sidebar-bg);
+    color: #f1f5f9;
+    flex-shrink: 0;
+    padding-top: 1rem;
+    display: flex;
+    flex-direction: column;
+    transition: all 0.3s ease;
+}
+
+.sidebar .nav-link {
+    color: #94a3b8;
+    padding: 0.75rem 1.25rem;
+    font-size: 0.95rem;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    border-left: 3px solid transparent;
+    transition: all 0.2s ease;
+}
+
+.sidebar .nav-link i {
+    font-size: 1.15rem;
+    margin-right: 0.85rem;
+    width: 24px;
+    text-align: center;
+}
+
+.sidebar .nav-link:hover {
+    color: #ffffff;
+    background-color: rgba(255, 255, 255, 0.05);
+}
+
+.sidebar .nav-link.active {
+    color: #ffffff;
+    background-color: rgba(37, 99, 235, 0.2);
+    border-left-color: var(--sidebar-active);
+    font-weight: 600;
+}
+
+.sidebar-heading {
+    text-transform: uppercase;
+    font-size: 0.75rem;
+    letter-spacing: 0.08em;
+    color: #64748b;
+    padding: 1rem 1.25rem 0.5rem;
+    font-weight: 700;
+}
+
+/* Main Content Area */
+.main-content {
+    flex: 1;
+    padding: 2rem;
+    overflow-y: auto;
+    background-color: var(--content-bg);
+}
+
+/* Metric / Stat Cards */
+.stat-card {
+    background: #ffffff;
+    border-radius: 12px;
+    border: 1px solid var(--card-border);
+    padding: 1.5rem;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.stat-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(0,0,0,0.08);
+}
+
+.stat-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+}
+
+.stat-value {
+    font-size: 2rem;
+    font-weight: 700;
+    line-height: 1.1;
+    margin-top: 0.25rem;
+}
+
+/* Content Cards */
+.custom-card {
+    background: #ffffff;
+    border-radius: 12px;
+    border: 1px solid var(--card-border);
+    box-shadow: 0 1px 3px rgba(0,0,0,0.03);
+    margin-bottom: 1.5rem;
+}
+
+.custom-card-header {
+    background-color: transparent;
+    border-bottom: 1px solid var(--card-border);
+    padding: 1rem 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.custom-card-body {
+    padding: 1.5rem;
+}
+
+/* Tables */
+.table-custom {
+    margin-bottom: 0;
+}
+
+.table-custom th {
+    background-color: #f8fafc;
+    color: #475569;
+    font-weight: 600;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    border-bottom: 1px solid var(--card-border);
+    padding: 0.85rem 1rem;
+}
+
+.table-custom td {
+    padding: 1rem;
+    vertical-align: middle;
+    border-bottom: 1px solid var(--card-border);
+}
+
+/* Flash Messages */
+.flash-messages-container {
+    animation: fadeIn 0.3s ease-in;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-8px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Responsive adjustments */
+@media (max-width: 991.98px) {
+    .dashboard-wrapper {
+        flex-direction: column;
+    }
+    .sidebar {
+        width: 100%;
+        min-height: auto;
+    }
+    .main-content {
+        padding: 1.25rem;
+    }
+}
+
